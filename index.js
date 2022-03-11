@@ -4,7 +4,7 @@ const app=express()
 require('./middleware/database')
 const morgan=require("morgan")
 const flash=require('connect-flash')
-const hbs =require('hbs')
+const hbs =require('hbs');
 const bodyparser=require('body-parser')
 const menue=require('./controller/menue')
 const user=require('./controller/user')
@@ -14,9 +14,6 @@ const caculator=require('./controller/cal')
 const trans=require('./controller/accounting')
 const product=require('./controller/admin')
 const {isNormal}=require('./middleware/authguard')
-const open = require('open');
-
-
 
 hbs.registerPartials(__dirname + '/views/Partials');
 hbs.registerPartial('Aheader',"{{Aheader}}")
@@ -25,35 +22,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 app.use(morgan('combined'))
-app.set('trust proxy', 1);
-app.set('trust proxy', 1);
-
 app.use(session({
-cookie:{
-    secure: true,
-    maxAge:60000
-       },
-
-secret: 'secret',
-saveUninitialized: true,
-resave: false
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+  store:store
+  
 }));
-
-app.use(function(req,res,next){
-if(!req.session){
-    return next(new Error('Server Error')) //handle error
-}
-next() //otherwise continue
-});
 app.use(flash());
 
-app.use(function (req, res, next) {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  res.locals.page = req.url;
-  next();
-});
+
 app.use(bodyparser.urlencoded({extended:false}))
 app.use(bodyparser.json())
 app.use('/user',user)
@@ -65,9 +43,7 @@ app.use((req,res,next)=>{
   res.redirect("/v1/stay")
 })
 
-
-let port=3000 || process.env.PORT;
+let port=3000 | process.env.PORT;
 
 app.listen(port , ()=>{
-
 } )
