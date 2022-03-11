@@ -25,12 +25,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'hbs');
 app.set('views', 'views');
 app.use(morgan('combined'))
+app.set('trust proxy', 1);
 app.use(session({
-  secret: process.env.SERCRET,
+  secret: "hello",
   resave: true,
   saveUninitialized: true,
   cookie:{
-    secure:false,
+    secure:true,
     httpOnly:false,
     maxAge:1000*60*60*60
   }
