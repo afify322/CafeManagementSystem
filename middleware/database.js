@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-mongoose.connect(procces.env.DB,{
+mongoose.connect(process.env.DB,{
     useFindAndModify: false,
     useCreateIndex: true,
     useNewUrlParser:true,
