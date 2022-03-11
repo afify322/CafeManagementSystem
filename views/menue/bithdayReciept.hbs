@@ -1,0 +1,520 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+<style>
+  .example-print {
+    display: none;
+}
+@media print {
+   .example-screen {
+       display: none;
+    }
+    .example-print {
+       display: block;
+    }
+}
+    * {
+  box-sizing: border-box;
+}
+
+/* Tables */
+.table {
+margin: 0%;
+padding: 0%;
+display: flex;
+
+}
+
+ th {
+  border-bottom: 3px solid black;
+  border-bottom-width: 1px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+
+.table thead th i {
+  margin-left: 0.325rem;
+}
+
+.table td,
+.table th {
+  width: 100px;
+  padding: 08px 5px;
+    direction: rtl;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+  border-right: 3px solid black;
+}
+
+.table td img,
+.table th img {
+  border-radius: 100%;
+}
+
+.table td .badge,
+.table th .badge {
+  margin-bottom: 0;
+}
+
+.table td .form-check,
+.table td .form-radio,
+.table th .form-check,
+.table th .form-radio {
+  margin-top: 0;
+  margin-bottom: -0px;
+}
+
+.table.table-borderless {
+  border: none;
+}
+
+.table.table-borderless td,
+.table.table-borderless th,
+.table.table-borderless tr {
+  border: 3px solid black;
+}
+
+.table.table-bordered thead {
+  border: 1px solid #f2f2f2;
+  border-bottom: none;
+}
+
+.table.table-bordered thead tr th {
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+body {
+  height: 130%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #ededed;
+  margin: 0;
+}
+
+.receipt {
+  background-color: #fff;
+  height: 100%;
+  width: 21rem;
+  position: relative;
+  margin-top: auto;
+  padding: 1.5rem;
+  box-shadow: 0 -0.4rem 1rem -0.4rem rgba(0,0,0,0.2);
+  
+}
+
+.receipt:after {
+  background-image: linear-gradient(135deg, #fff 0.5rem, transparent 0), linear-gradient(-135deg, #fff 0.5rem, transparent 0);
+    background-position: left-bottom;
+    background-repeat: repeat-x;
+    background-size: 1rem;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+}
+
+.receipt__header {
+  text-align: center;
+}
+
+.receipt__title {
+  font-family:'Times New Roman';
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem;
+}
+
+.receipt__date {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0.5rem 0 1rem;
+}
+
+.receipt__list {
+  margin: 2rem 0 1rem;
+  padding: 0 1rem;
+}
+
+.receipt__list-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.receipt__list-row:after {
+  content: '';
+  display: block;
+  border-bottom: 1px dotted rgba(0,0,0,0.15);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -0.25rem;
+  z-index: 1
+}
+
+.receipt__item {
+  background-color: #fff;
+  z-index: 2;
+  padding: 0 0.15rem 0 0;
+  color: #1f1f1f;
+}
+
+.receipt__cost {
+  margin: 0;
+  padding: 0 0 0 0.15rem;
+  background-color: #fff;
+  z-index: 2;
+  color: #1f1f1f;
+}
+
+.receipt__list-row--total {
+  border-top: 1px solid #FF619B;
+  padding: 1.5rem 0 0;
+  margin: 1.5rem 0 0;
+  font-weight: 700;
+}
+embed {
+  width: 50%;
+  height: auto;
+        display: block; margin: auto;
+}
+.btn {
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.3s;
+  margin: 8px
+}
+
+.btn:hover {
+  background-color: #2b663b;
+  color: white;
+}
+
+.btn__accept {
+  background-color: #54cc74;
+   cursor: pointer;
+}
+
+.btn__cancel {
+  background-color: #989c99;
+}
+.btn__back {
+  background-color: crimson;
+ cursor: pointer;
+}
+
+.btn__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.left{
+  border-left: 3px solid black;
+}
+.bottom{
+  border-bottom: 3px solid black;
+}
+.top{
+    border-top: 3px solid black;
+    text-align: center;
+    font-size: 5px;
+}
+.center{
+  text-align: center;
+}
+
+</style>
+
+<body>
+         <div class="receipt  example-print" >
+  <header class="receipt__header">
+    <p class="receipt__title">
+      Paplo
+    </p>
+    
+    <embed src="/../images/logo5.svg"   alt="">
+    <p class="receipt__date" id="time"></p>
+  </header> {{#if delivery}}
+    <p style="text-align: center;">  أسم الدليفيري: {{delivery}}</p>
+    <p style="text-align: center;">  {{name}}:أسم الموظف</p><p style="text-align: center;">  {{time}}</p>
+
+  {{/if}}
+  {{#unless delivery}}
+    <p style="text-align: center;"> {{name}}:أسم الموظف</p><p style="text-align: center;">  {{time}}</p>
+
+  {{/unless}}<div style="display: inline;width: auto; padding-left: 50x">
+ <table id="myTable" class="table table-bordered list " style="margin:30px" >
+      <tr>
+        <th class="left top">القيمة</th>
+        <th class="top">العدد</th>
+        <th class="top">أسم الصنف</th>
+        
+        </tr>
+      
+       {{#each data}}
+      <tr>
+           <td  class="left top" >{{this.price}}</td>
+      <td  class="top" >{{this.qty}}</td>
+      <td class="top" style="padding:auto 1px">{{this.name}}</td>
+  </tr>
+  
+   {{/each}}
+  
+   {{#if delivery}}
+     <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+    <tr>
+      <td  class="left center" >15</td>
+      <td class="center"></td>
+      <td class="center">خدمة توصيل</td>
+        </tr>
+   {{/if}}
+     
+   {{#if tax}}
+   
+   <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+   
+    
+    <tr>
+      <td  class="left center" >{{tax}}</td>
+      <td class="center">10%</td>
+      <td class="center">خدمة</td>
+        </tr>
+      {{/if}}
+       {{#if chair}}   
+    <tr>
+      <td  class="left center" >{{chair}}</td>
+      <td class="center">{{chairqty}}</td>
+      <td class="center">كرسي</td>
+        </tr>
+      {{/if}}
+       {{#if person}}   
+    <tr>
+      <td  class="left center" >{{person}}</td>
+      <td class="center">{{personqty}}</td>
+      <td class="center">فرد عيد ميلاد</td>
+        </tr>
+      {{/if}}
+   {{#if cash}}
+     <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+   <tr>
+     <td style="black;text-align: center;" class="left">{{cash}}</td>
+     <td style="text-align: center;"></td>
+     <td style="text-align: center;">المدفوع</td>
+   </tr>
+   
+   <tr>
+     <td style="text-align: center;" class="left" >{{remender}}</td>
+     <td style="text-align: center;" ></td>
+     <td style="text-align: center;" >المتبقي</td>
+   </tr> 
+    {{/if}}
+   
+      <tr >
+           <td style="border-top: 3px solid black;text-align: center;" class="left bottom" >{{total}}</td>
+      <td style="border-top: 3px solid black;text-align: center;" class="bottom"></td>
+      <td style="border-top: 3px solid black;text-align: center;" class="bottom" >اجمالي</td>
+  </tr>
+
+  </table>
+ 
+  </div>
+ 
+
+</div>
+  <div class="receipt  example-screen" >
+  <header class="receipt__header">
+    <p class="receipt__title">
+      Paplo
+    </p>
+    
+    <embed src="/../images/logo5.svg"   alt="">
+    <p class="receipt__date" id="time"></p>
+  </header> {{#if delivery}}
+    <p style="text-align: center;">  أسم الدليفيري: {{delivery}}</p>
+    <p style="text-align: center;">  {{name}}:أسم الموظف</p><p style="text-align: center;">  {{time}}</p>
+
+  {{/if}}
+  {{#unless delivery}}
+    <p style="text-align: center;"> {{name}}:أسم الموظف</p><p style="text-align: center;">  {{time}}</p>
+
+  {{/unless}}<div style="display: inline;width: auto; padding-left: 50x">
+ <table id="myTable" class="table table-bordered list " style="margin:30px" >
+      <tr>
+        <th class="left top">القيمة</th>
+        <th class="top">العدد</th>
+        <th class="top">أسم الصنف</th>
+        
+        </tr>
+      
+       {{#each data}}
+      <tr>
+           <td  class="left top" >{{this.price}}</td>
+      <td  class="top" >{{this.qty}}</td>
+      <td class="top" style="padding:auto 1px">{{this.name}}</td>
+  </tr>
+  
+   {{/each}}
+  
+   {{#if delivery}}
+     <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+    <tr>
+      <td  class="left center" >15</td>
+      <td class="center"></td>
+      <td class="center">خدمة توصيل</td>
+        </tr>
+   {{/if}}
+     
+   {{#if tax}}
+   
+   <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+   
+    
+    <tr>
+      <td  class="left center" >{{tax}}</td>
+      <td class="center">10%</td>
+      <td class="center">خدمة</td>
+        </tr>
+      {{/if}}
+       {{#if chair}}   
+    <tr>
+      <td  class="left center" >{{chair}}</td>
+      <td class="center">{{chairqty}}</td>
+      <td class="center">كرسي</td>
+        </tr>
+      {{/if}}
+       {{#if person}}   
+    <tr>
+      <td  class="left center" >{{person}}</td>
+      <td class="center">{{personqty}}</td>
+      <td class="center">فرد عيد ميلاد</td>
+        </tr>
+      {{/if}}
+   {{#if cash}}
+     <tr>
+     <td  class="left top">{{orignal}}</td>
+     <td class="top"></td>
+     <td class="top">اجمالي</td>
+   </tr>
+   <tr>
+     <td style="black;text-align: center;" class="left">{{cash}}</td>
+     <td style="text-align: center;"></td>
+     <td style="text-align: center;">المدفوع</td>
+   </tr>
+   
+   <tr>
+     <td style="text-align: center;" class="left" >{{remender}}</td>
+     <td style="text-align: center;" ></td>
+     <td style="text-align: center;" >المتبقي</td>
+   </tr> 
+    {{/if}}
+   
+      <tr >
+           <td style="border-top: 3px solid black;text-align: center;" class="left bottom" >{{total}}</td>
+      <td style="border-top: 3px solid black;text-align: center;" class="bottom"></td>
+      <td style="border-top: 3px solid black;text-align: center;" class="bottom" >اجمالي</td>
+  </tr>
+
+  </table>
+  {{#unless review}}
+  <div class="example-screen btn__container">
+    <a class=" btn btn__accept" href="/v2/done" onclick="printDiv()">طباعة</a>
+        <a class=" btn btn__back" href="/v1/stay">الغاء الفاتورة</a>
+
+  </div>
+  {{/unless}}
+  {{#if review}}
+    <div class="example-screen btn__container">
+        <a class=" btn btn__back" onclick="javascript:window.history.back()">رجوع</a>
+
+  </div>
+  {{/if}}
+  </div>
+ 
+
+</div>
+
+
+
+
+
+<script>
+  function printDiv(){
+    window.print()
+  }
+
+
+</script>
+<script type="text/javascript">
+function closePrint () {
+  document.body.removeChild(this.__container__);
+}
+
+function setPrint () {
+  this.contentWindow.__container__ = this;
+  this.contentWindow.onbeforeunload = closePrint;
+  this.contentWindow.onafterprint = closePrint;
+  this.contentWindow.focus(); // Required for IE
+  this.contentWindow.print();
+}
+
+function printPage (sURL) {
+  var oHideFrame = document.createElement("iframe");
+  oHideFrame.onload = setPrint;
+  oHideFrame.style.position = "fixed";
+  oHideFrame.style.right = "0";
+  oHideFrame.style.bottom = "0";
+  oHideFrame.style.width = "0";
+  oHideFrame.style.height = "0";
+  oHideFrame.style.border = "0";
+  oHideFrame.src = sURL;
+  document.body.appendChild(oHideFrame);
+}
+</script>
+  <script  src="../vendors/css/jquery-3.3.1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+{{>Aheader}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>تعديل صنف</h1></div>     
+              </span>
+            </div>
+          </div>
+      <div class="container-fluid page-body-wrapper full-page-wrapper auth-page" >
+          
+      <div class="content-wrapper d-flex align-items-center auth auth-bg-2 theme-one">
+       
+  <div class="row w-100" style="font-size: large;">
+          <div class="col-lg-4 mx-auto">
+            <div class="auto-form-wrapper" style="background-color: rgba(255, 255, 255, 0.986);">
+              
+               {{#if success_msg}}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{success_msg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+          {{/if}}
+           {{#if error_msg}}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{error_msg}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+          {{/if}}
+              <form method="POST" id="FORM_ID" action="/admin/editproduct" >
+                <div class="form-group" style="text-align: right;display: none;">
+                  <label class="label">الكود</label>
+                  <div class="input-group">
+                    <input type="text" style="font-size: large; direction: rtl;" value={{_id}}  name="_id" class="form-control" readonly >
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                  <label class="label">أسم الصنف</label>
+                  <div class="input-group" style="text-align: right;">
+                    <input type="text" style="font-size: large; direction: rtl;" value={{title}}  name="name" class="form-control" placeholder="أسم الصنف" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                   </div>
+                   <div class="form-group " style="text-align: right;">
+                     <label class="label">نوع الصنف</label>
+                        <select id="inputState" name="category"  style="font-size: large; direction: rtl;" class="form-control" >
+                            
+                            <option >{{category}}</option>
+                            
+                        </select>
+                    </div>
+               
+                <div class="form-group" style="text-align: right;">
+                  <label class="label">الكمية</label>
+                  <div class="input-group">
+                    <input type="number" style="font-size: large; direction: rtl;" value={{qty}}  name="qty" class="form-control" placeholder="الكمية" required>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                  <label class="label">الثمن</label>
+                  <div class="input-group">
+                    <input type="number" style="font-size: large; direction: rtl;" value={{price}}  min="0" name="price" class="form-control" placeholder="الثمن" required>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              
+                
+                <div class="form-group">
+                  
+                <div class="form-group">
+                  <button class="btn btn-primary submit-btn btn-block" type="submit">تعديل</button>
+                </div>
+              </form>
+               
+            </div>
+            
+            <p class="footer-text text-center">copyright © 2021  All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+              
+            </div>
+ </div>
+          
+          </div>
+
+    
+          
+        </div>
+        </div>
+  
+
+    <script>
+      $('form').submit(function(e){
+         if (!confirm("هل تريد اكمال العملية؟")) {
+   e.preventDefault()  }
+     
+
+      })
+   
+    </script>
+     
+{{>Afooter}}

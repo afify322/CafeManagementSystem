@@ -1,0 +1,731 @@
+{{>header}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>دليفري</h1></div>     
+              </span>
+            </div>
+          </div>
+   <nav class="nav-tab" >
+    <ul style="font-weight: bold;">
+      <li ><button  data-tab="tab-1">مشروبات ساخنة</button></li>
+      <li ><button  data-tab="tab-2">مشروبات اعشاب</button></li>
+      <li ><button  data-tab="tab-3">مشروبات غازية</button></li>
+      <li ><button  data-tab="tab-4">مشروبات شتوية</button></li>
+      <li ><button  data-tab="tab-5">فرابتشينو</button></li>
+      <li ><button  data-tab="tab-6">سموزي</button></li>
+      <li ><button  data-tab="tab-7">عصائر فريش</button></li>
+      <li ><button  data-tab="tab-8">ايس كريم</button></li>
+      <li ><button  data-tab="tab-9">توستات</button></li>
+      <li ><button  data-tab="tab-10">صودا</button></li>
+      <li ><button  data-tab="tab-11">بطاطس</button></li>
+      <li ><button  data-tab="tab-12">حلويات</button></li>
+      <li ><button  data-tab="tab-13">ميلك شيك</button></li>
+      <li ><button  data-tab="tab-14">فروت سلاط</button></li>
+      <li ><button  data-tab="tab-15">وافل</button></li>
+
+    </ul>
+  </nav>
+     <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body"> 
+                <div class="container">
+
+     <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;">
+                <div class="reciept">
+
+                </div>
+                                                         <input id="m" class="orderTotal number myInput " form="myFormId" style="direction: rtl; float: right;" readonly>
+
+                         
+
+
+        <input type="text"   id="myInput" form="myFormId"  style="direction: rtl; float: right;text-align: center;" placeholder="أسم الدليفري" name="delivery" required>
+
+                         
+                    <input type="text" class="myInput" id="myInput1"  onkeyup="myFunction()" style="direction: rtl; float: right;" placeholder="بحث........." title="Type in a name">
+   
+<button class="btn btn-primary btnde"  style="border-radius: 6px;" type="" onclick="reset()"> مسح </button></div>     
+              </span>
+            </div>
+          </div>
+
+       <form  action="/v1/delivery" method="POST"  id="myFormId">
+
+
+
+       <section class="content-tab" style="padding: 0px;" id="tab-1">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each hot}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-2">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each grass}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-3">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each soda}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-4">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each winter}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-5">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each fra}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-6">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each smozy}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-7">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each fresh}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-8">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each ice}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-9">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each twst}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-10">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each suda}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-11">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each fried}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-12">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each dessert}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-13">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each milk}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+          <section class="content-tab" style="padding: 0px;" id="tab-14">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each salad}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+         <section class="content-tab" style="padding: 0px;" id="tab-15">
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                             
+                        
+                         {{#each waffel}}
+                         
+                         <tr>
+                             <td class="itemTotal">00.00</td>
+                              <td >{{this.price}}</td>
+  
+                             <td><input type="number" class="item quantity number" value="0" name={{this.title}} min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item">{{this.name}}</td>
+                             
+                             </tr>
+                         {{/each}}
+                          </tbody>
+                     </table>
+       </section>
+ 
+   
+  
+  
+
+   </div>
+   </div>
+                </div>
+              
+              </div>
+              
+            </div>
+           
+          </div>
+
+    <div style="align-items: center;">
+   <button class="btn btn-primary"   style="width: 100%;height: 80px; background-color:darkcyan" id="mo" type="submit">عمل فاتورة</button>
+   </div> 
+   </form>
+  
+ <div class="cost">
+    <table class="pricing">
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="subtotal"></td>
+        </tr>
+        <tr>
+          <td>Tax (10%)</td>
+          <td class="tax"></td>
+        </tr>         
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+      
+    
+</div>
+          
+        </div>
+        </div>
+  
+    <script>
+   
+       
+      function reset(){
+           
+          document.getElementsByClassName("itemTotal").value = 0.00;
+            document.getElementsByClassName("subtotal").value = 0.00;
+          
+          $("table.pricing td.subtotal").text(0.00),
+       $("table.pricing td.tax").text(),
+     
+  
+  subtotal = 0.00
+  tax = 0.00
+   
+  total = 0.00
+  
+  $("input.orderTotal").val(total);
+  $('.quantity').each(function(){
+      console.log("mosalah")
+      $(this).val(0.00)
+  })
+   $("table.items td.itemTotal").each(function(){
+    $(this).text(0.00)
+    // set the pricePer to a nice, digestable number
+    value = 0.00
+
+    sum += 0.00
+    $("table.pricing td.subtotal").text("$" + 0.00);
+  });
+      }
+    $("form").submit(function(e){  
+          var delivery=$('#m').val()
+        if(formatNum(delivery)==15){
+              e.preventDefault()
+            alert("يجب ادخال الاصناف")
+            window.location.href='/v1/delivery'
+        }
+       
+      
+        $("input").each(function(index, obj){
+            if($(obj).val() == "" || $(obj).val() == 0) {
+                $(obj).remove();
+            }
+        
+        });
+
+    });
+
+ 
+
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("span")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+       $(document).ready(function(){
+
+
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+  
+  
+  
+document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByTagName("INPUT");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function(e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("يجب ادخال اسم الدليفري");
+            }
+        };
+        elements[i].oninput = function(e) {
+            e.target.setCustomValidity("");
+        };
+    }
+})
+   
+    </script>
+    <script>
+    var removedItem,
+    sum = 0;
+
+$(function(){
+  // calculate the values at the start
+  calculatePrices();
+  
+  // Click to remove an item
+  $(document).on("click", "a.remove", function() {
+      removeItem.apply(this);
+  });
+  
+  // Undo removal link click
+  $(document).on("click", ".removeAlert a", function(){    
+    // insert it into the table
+    addItemBackIn();
+    //remove the removal alert message
+    hideRemoveAlert();
+  });
+  
+  $(document).on("change", "input.quantity", function(){
+    var val = $(this).val(),
+        pricePer,
+        total
+    console.log(val)
+    if ( val < "0") {
+      removeItem.apply(this);
+    } else {
+      // reset the prices
+      sum = 0;
+      
+      // get the price for the item
+      pricePer = $(this).parents("td").prev("td").text();
+      // set the pricePer to a nice, digestable number
+      pricePer = formatNum(pricePer);
+      // calculate the new total
+      total = parseFloat(val * pricePer).toFixed(2);
+            console.log(total)
+
+      // set the total cell to the new price
+      $(this).parents("td").siblings(".itemTotal").text("$" + total);
+      
+      // recalculate prices for all items
+      calculatePrices();
+    }
+  });
+  
+});
+
+
+function removeItem() {
+ // store the html
+  removedItem = $(this).closest("tr").clone();
+  // fade out the item row
+  $(this).closest("tr").fadeOut(500, function() {
+    $(this).remove();
+    sum = 0;
+    calculatePrices();
+  });
+  // fade in the removed confirmation alert
+  $(".removeAlert").fadeIn();
+  
+  // default to hide the removal alert after 5 sec
+  setTimeout(function(){
+    hideRemoveAlert();
+  }, 5000); 
+}
+
+function hideRemoveAlert() {
+  $(".removeAlert").fadeOut(500);
+}
+
+function addItemBackIn() {
+  sum = 0;
+  $(removedItem).prependTo("table.items tbody").hide().fadeIn(500) 
+  calculatePrices();
+}
+
+function updateSubTotal(){
+  $("table.items td.itemTotal").each(function(){
+    var value = $(this).text();
+    // set the pricePer to a nice, digestable number
+    value = formatNum(value);
+
+    sum += parseFloat(value);
+    $("table.pricing td.subtotal").text("$" + sum.toFixed(2));
+  });
+}
+
+function addTax() {
+  var tax =15;
+  console.log(name)
+  $("table.pricing td.tax").text("$" + tax);
+}
+
+function calculateTotal() {
+    
+  var subtotal = $("table.pricing td.subtotal").text(),
+      tax = $("table.pricing td.tax").text(),
+      total;
+      console.log("subtotal:"+subtotal)
+  
+  subtotal = formatNum(subtotal);
+  tax = formatNum(tax);
+   
+  total = (subtotal + tax ).toFixed(2);
+  
+  $("input.orderTotal").val(total);
+}
+
+function calculatePrices() {
+  updateSubTotal();
+  addTax();
+  calculateTotal();
+}
+
+function formatNum(num) {
+  return parseFloat(num.replace(/[^0-9-.]/g, ''));
+}
+</script>
+     
+{{>footer}}

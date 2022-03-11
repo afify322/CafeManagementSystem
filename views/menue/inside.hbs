@@ -1,0 +1,959 @@
+{{>header}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>Stay</h1></div>     
+              </span>
+            </div>
+          </div>
+  {{!-- tabs --------------------------------------- --}}       
+  <nav class="nav-tab" >
+    <ul>
+      <li ><button  data-tab="tab-1">مشروبات</button></li>
+      <li ><button  data-tab="tab-2">مأكولات</button></li>
+
+    </ul>
+  </nav>
+<!-- FIRST SECTION -->
+  <section class="content-tab" id="tab-1">
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body">
+           
+
+                  
+                <div class="container">
+  <form  action="/v1/inside" method="POST"  id="myFormId">
+    <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+          <input type="text" class="form-control prdouct"  id="userid" value="قهوة"  readonly>
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+          <input type="text" class="form-control prdouct"   value="12" id="jobtitle"  readonly>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="empno" style=" float: right;font-size: large;">العدد</label>
+          <input type="number" class="form-control prdouct"   id="coffe" name="coffe" min="0" >
+        </div>
+    </div>
+        <!--product--->
+
+     <div class=" col-md-2">
+        <div class="form-group">
+                    <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+
+          <input type="text" class="form-control prdouct"  id="userid" value="شاي" readonly>
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <div class="form-group">
+                    <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="10" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+                    <label for="empno" style=" float: right;font-size: large;">العدد</label>
+
+          <input type="number" class="form-control prdouct"   id="tea" name="tea" min="0" >
+        </div>
+    </div>
+          <!--product--->
+
+     <div class=" col-md-2">
+        <div class="form-group">
+          <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+          <input type="text" class="form-control prdouct" style="font-size: large;"  id="userid" value="قهوة"  readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+          <input type="text" class="form-control prdouct"   value="12" id="jobtitle"  readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="empno" style=" float: right;font-size: large;">العدد</label>
+          <input type="number" class="form-control prdouct"  id="coffe" name="coffe" min="0" >
+        </div>
+    </div>
+    </div>
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="مياه" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="water" id="water" min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كابتشينو" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="capacino"  min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كوفي ميكس" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="coffemix"  min="0" >
+        </div>
+    </div>
+    </div>
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="نسكافيه" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="nescafe" id="nescafe" min="0" >
+        </div>
+    </div>
+     <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+     <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+    </div>
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"   value="قهوة فرنساوي" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct" id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="frenchCoffe" id="french" min="0" >
+        </div>
+    </div>
+     <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+     <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+    </div>
+     <div class="row" style="direction: rtl;">
+        <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصير مانجا" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="mango" id="empno" min="0" >
+        </div>
+    </div>
+     <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عصر برتقال" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="15" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="orange" id="empno" min="0" >
+        </div>
+    </div>
+    </div>
+     
+      <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="مياه" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="water" id="water" min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كابتشينو" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="capacino"  min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كوفي ميكس" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="coffemix"  min="0" >
+        </div>
+    </div>
+    </div>
+      <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="مياه" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="water" id="water" min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كابتشينو" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="capacino"  min="0" >
+        </div>
+    </div>
+    {{!-- product --}}
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="كوفي ميكس" readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="5" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct" name="coffemix"  min="0" >
+        </div>
+    </div>
+    </div>
+
+
+     </div>
+      </div>
+       </div>
+        </div>
+         </div>
+        
+  
+       
+  </section>
+
+
+
+<!-- SECOND SECTION -->
+  <section class="content-tab" id="tab-2">
+     <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body"> 
+                <div class="container">
+
+    <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+          <input type="text" class="form-control prdouct"  id="userid" value="قهوة"  readonly>
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+          <input type="text" class="form-control prdouct"   value="12" id="jobtitle"  readonly>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="empno" style=" float: right;font-size: large;">العدد</label>
+          <input type="number" class="form-control prdouct"   id="coffe" name="coffe" min="0" >
+        </div>
+    </div>
+        <!--product--->
+
+     <div class=" col-md-2">
+        <div class="form-group">
+                    <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+
+          <input type="text" class="form-control prdouct"  id="userid" value="شاي" readonly>
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <div class="form-group">
+                    <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="10" readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+                    <label for="empno" style=" float: right;font-size: large;">العدد</label>
+
+          <input type="number" class="form-control prdouct"   id="tea" name="tea" min="0" >
+        </div>
+    </div>
+          <!--product--->
+
+     <div class=" col-md-2">
+        <div class="form-group">
+          <label for="userid" style=" float: right;font-size: large;">أسم الصنف</label>
+          <input type="text" class="form-control prdouct" style="font-size: large;"  id="userid" value="قهوة"  readonly>
+        </div>
+      </div>
+      
+
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="jobtitle" style=" float: right;font-size: large;">السعر</label>
+          <input type="text" class="form-control prdouct"   value="12" id="jobtitle"  readonly>
+        </div>
+      </div>
+      
+      <div class="col-md-1">
+        <div class="form-group">
+          <label for="empno" style=" float: right;font-size: large;">العدد</label>
+          <input type="number" class="form-control prdouct"  id="coffe" name="coffe" min="0" >
+        </div>
+    </div>
+    </div>
+    <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+    <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+     
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+     
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+     
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+     
+     <div class="row" style="direction: rtl;">
+      <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="عناب" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="12" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="enab" id="empno" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    <div class=" col-md-2">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="userid" value="ينسون" readonly>
+        </div>
+      </div>
+      
+
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="text" class="form-control prdouct"  id="jobtitle"  value="13" value="" readonly>
+        </div>
+      </div>
+      
+      <div class=" col-md-1">
+        <div class="form-group">
+          <input type="number" class="form-control prdouct"   name="yanson" id="yanson" min="0" >
+        </div>
+    </div>
+    </div>
+     
+
+     
+    
+  
+ 
+   
+  
+  
+  <br><br>
+
+   </div>
+   </div>
+                </div>
+              
+              </div>
+              
+              <!--weather card ends-->
+            </div>
+           
+          </div>
+  </section>
+
+    <div style="align-items: center;">
+   <button class="btn btn-primary"   style="width: 100%;height: 80px;" id="mo" type="submit">عمل فاتورة</button>
+   </div> 
+   </form>
+  
+
+  </section>
+</div>
+      
+      
+          
+        </div>
+     <script type="text/javascript">
+       $.ajax({
+  url: "http://localhost:4000/v1/calculation",
+  type: "POST",
+  dataType: "json",
+  data: {
+    nb1: 3,
+    nb2: 1
+  },
+  success: function(json) {
+          console.log(json)
+
+    if(json.status == 200){
+      // Show your modal. For example:
+      $('.modal-body p').text(json.data) // Setting result to modal
+      $('#myModal').modal('show'); // Showing modal
+    }else {
+      // Show error message
+      $('#login-error').text("Invalid login.");
+    }
+  },
+
+  error: function() {
+     console.log(json)
+    // Probably something wrong with the server.
+    $('#login-error').text("Server error.");
+  }   
+});
+     </script>
+    <script>
+      
+  
+
+    $("form").submit(function(e){  
+        $("input").each(function(index, obj){
+            if($(obj).val() == "") {
+                $(obj).remove();
+            }
+           
+        });
+    
+    });
+
+
+     
+       
+   
+    </script>
+     
+{{>footer}}

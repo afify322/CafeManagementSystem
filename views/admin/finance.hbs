@@ -1,0 +1,133 @@
+{{>Aheader}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row purchace-popup">
+            <div class="col-12">
+           <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>الماليات</h1></div>     
+              </span>
+            </div>
+          </div>
+
+           
+         <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                
+                <div class="card-body">
+                  <p style="text-align: center;font-size: 25px; font-family: Verdana, Geneva, Tahoma, sans-serif;">طباعة تقرير</p>
+              <div class="search" style="direction: rtl;">
+                
+                <form id="for" action="/admin/dailyReport" method="POST">
+               <span>من</span>
+   <input type="date" form="for"  name="gte"  class=" myInput" placeholder="بحث" style="width: 40%;">
+    <span>إلى</span>
+    <input type="date" form="for"  name="lte"  class=" myInput" placeholder="بحث" style="width: 40%;">
+    <button type="submit"  class="btn btn-primary" style="width: 84%;">عرض تقرير</button>
+     
+                </form>
+ 
+   </div>
+
+                </div>
+               
+              </div>
+            </div>
+           
+          </div>
+
+
+         {{!--  //----------- --}}
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body">
+              <div class="search">
+      <input type="text" class="myInput"  onkeyup="myFunction()" class="searchTerm" style="direction: rtl;" placeholder="بحث">
+    <input type="date" form="formo"  name="date"  class=" myInput" placeholder="بحث">
+    <form action="/admin/finance" id="formo" method="POST">
+
+     <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+</form>
+     
+   </div>
+
+                    <div id="table-wrapper">
+                  <div id="table-scroll">
+                  
+                   <table id="myTable"class="table table-scroll table-bordered table-hover table-light" >
+                      <thead>
+                        <tr>
+                          <th>عدد العمليات</th>
+                          <th>الارباح</th>
+                          <th>اجمالي الخارج</th>
+                          <th >اجمالي الدخل</th>
+                          <th>اليوم</th>
+                          
+                           
+                        </tr>
+                      </thead>
+                      {{#if result}}
+             {{#each result}}
+     <tr>     
+        <td class="label">{{this.count}}</td>
+         <td class="label">{{this.profit}}</td>
+          <td class="label">{{this.outcome}}</td>
+         <td class="label">{{this.total}}</td>
+         <td class="label">{{this._id}}</td>
+     </tr>
+   {{/each}}
+   {{/if}}
+   
+   </table> 
+   
+   </div>
+   <div class="pagination">
+  {{#each arr}}
+  <a href="/admin/finance/?page={{this.page}}">{{this.page}}</a>
+  {{/each}}
+</div>
+   </div>
+                </div>
+               
+              </div>
+            </div>
+           
+          </div>
+       
+     <script>
+       function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("span")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+       $(document).ready(function(){
+
+
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+  
+  
+
+     </script>
+{{>Afooter}}

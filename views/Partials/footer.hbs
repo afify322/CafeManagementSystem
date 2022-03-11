@@ -1,0 +1,86 @@
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2021 Mohamed Afify
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+
+<!-- GeoFire -->
+
+
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 1000);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+// Select show tab on load page
+let indexOpen = 0;
+
+let btnTab = document.querySelectorAll('.nav-tab ul li button');
+let contentTab = document.querySelectorAll('.content-tab');
+
+function tabCurrent(thisTab) {
+    let idCurrent = thisTab.dataset.tab;
+    
+    for (let i = 0; i < btnTab.length; i++) {
+        btnTab[i].classList.remove('tab-current');
+    }
+    thisTab.classList.add('tab-current');
+  
+    for (let i = 0; i < contentTab.length; i++) {
+      if (idCurrent === contentTab[i].id) {
+        contentTab[i].classList.add('current-content-tab');
+      } else {
+        contentTab[i].classList.remove('current-content-tab');
+      }
+    }
+}
+
+for (let i = 0, len = btnTab.length; i < len; i++) {
+  btnTab[i].onclick = function() {
+   tabCurrent(this);
+  }
+}
+
+tabCurrent(btnTab[indexOpen]);
+</script>
+   
+
+  <script  src="/../vendors/css/jquery-3.3.1.js"></script>
+    <script  src="/../vendors/css/ajax.js"></script>
+  <script src="/../vendors/js/vendor.bundle.base.js"></script>
+  <script src="/../vendors/js/vendor.bundle.addons.js"></script>
+    <script  src="/../js/search.js"></script>
+
+  <script src="/../js/off-canvas.js"></script>
+  <script src="/../js/misc.js"></script>
+  <script src="/../js/calculator.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+  <script src="/../js/global.js"></script>
+ <script src="/../js/core-home.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+{{>Aheader}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row purchace-popup">
+            <div class="col-12">
+           <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>الفواتير</h1></div>     
+              </span>
+            </div>
+          </div>
+
+           
+        
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body">
+              <div class="search">
+      <input type="text" class="myInput"  onkeyup="myFunction()" class="searchTerm" style="direction: rtl;" placeholder="بحث">
+    <input type="date" form="formo"  name="date"  class=" myInput" placeholder="بحث">
+    <form action="/admin/transaction" id="formo" method="POST">
+
+     <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+</form>
+     
+   </div>
+
+                    <div id="table-wrapper">
+                  <div id="table-scroll">
+                  
+                   <table id="myTable"class="table table-scroll table-bordered table-hover table-light" >
+                      <thead>
+                        <tr>
+                          <th>تفاصيل الفاتورة</th>
+                          <th>مسح الفاتورة</th>
+                          <th>التوقيت</th>
+                          <th >ثمن الفاتورة</th>
+                          <th>أسم الموظف</th>
+                          
+                           
+                        </tr>
+                      </thead>
+             {{#each result}}
+     <tr>   
+                <td class="label" ><a class="btn btn-primary" href="/admin/recieptReview/?_id={{this._id}}"> تفاصيل الفاتورة</a></td>
+  
+         <td class="label" ><a class="btn btn-danger" href="/admin/deleteTransaction/?_id={{this._id}}">مسح العملية</a></td>
+        <td class="label">{{this.date}}</td>
+         <td class="label">{{this.price}}</td>
+         <td class="label">{{this.user}}</td>
+     </tr>
+   {{/each}}
+   </table> 
+   
+   </div>
+   <div class="pagination">
+  {{#each arr}}
+  <a href="/admin/transaction/?page={{this.page}}">{{this.page}}</a>
+  {{/each}}
+</div>
+   </div>
+                </div>
+               
+              </div>
+            </div>
+           
+          </div>
+       
+     <script>
+
+          $('.btn-danger').click(function(e){
+         if (!confirm("هل تريد اكمال العملية؟")) {
+   e.preventDefault()  }
+     
+
+      })
+       function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("span")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+       $(document).ready(function(){
+
+
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+  
+  
+
+     </script>
+{{>Afooter}}

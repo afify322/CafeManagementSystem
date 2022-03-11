@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>lift your lift</title>
+  <!-- plugins:css -->
+    <link rel="stylesheet" href="/../vendors/css/custom.css">
+{{!--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ --}}
+
+  <link rel="manifest" href="/../vendors/manifest.json">
+ <script  src="/../vendors/css/jquery-3.3.1.js"></script>
+    <script  src="/../vendors/css/ajax.js"></script>
+
+  <link rel="stylesheet" href="/../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="/../vendors/css/vendor.bundle.addons.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,900i" rel="stylesheet">
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+  
+      <link rel="shortcut icon" href="/images/favicon.png" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/../css/styleT.css">
+  <link rel="stylesheet" href="/../css/tabs.css">
+    <link rel="stylesheet" href="/../css/cal.css">
+
+ 
+  
+  <!-- endinject -->
+  <link rel="shortcut icon" href="/../images/favicon.png" />
+
+
+</head>
+
+<body onload="startTime()">
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+         <a class="navbar-brand " href="/home">
+          <img src="/../images/paplo1.jpg" class="paplo" alt="logo" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"style="height: 200px;">
+          <img src="/../images/logo-mini.svg" alt="logo" />
+          
+        </a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center">
+        <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
+        <div id="txt" style="align-items: center;font-size: large;"></div>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+       
+          
+          <li class="nav-item dropdown d-none d-xl-inline-block">
+            
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <span class="profile-text" style="font-size: large;"> {{name}} : أسم الموظف </span>
+              <img class="img-xs rounded-circle" src="/../images/faces/face1.png" alt="Profile image">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              
+            
+              <a class="dropdown-item" href="/logout">
+                Sign Out
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+         <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <div class="nav-link">
+              <div class="user-wrapper">
+                <div class="profile-image">
+                  <img src="/../images/faces/face1.png"  alt="profile image">
+                </div>
+                <div class="text-wrapper">
+                  <p class="profile-name"></p>
+                  <div>
+                    <small class="designation text-muted" style="font-size: large;">المدير</small>
+                    <span class="status-indicator online"></span>
+                    <br>
+                    {{name}} 
+                  </div>
+                </div>
+           
+          </li>
+          
+         
+          
+          <li class="nav-item">
+            <a class=" btn btn-primary btn-block" style="height: 40px;" href="/admin/transaction">
+              <i class="menu-icon fas fa-receipt"></i>
+              <span class="menu-title">الفواتير</span>
+            </a>
+          </li>
+
+          <li class="nav-item" style="padding-top: 0px;">
+            <a class=" btn btn-primary btn-block" style="height: 40px;" href="/admin/product">
+              <i class="menu-icon fas fa-shopping-cart"></i>
+              <span class="menu-title">الاصناف</span>
+            </a>
+          </li>
+   </li>
+            <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/admin/clerks">
+              <i class="menu-icon fas fa-users"></i>
+              <span class="menu-title">الموظفين</span>
+            </a>
+          </li>
+          <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/admin/attend">
+              <i class="menu-icon fas fa-running"></i>
+              <span class="menu-title">الحضور والانصراف</span>
+            </a>
+          </li>
+           </li>
+             <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/admin/finance">
+              <i class="menu-icon fas fa-money-bill-wave"></i>
+              <span class="menu-title">الماليات</span>
+            </a>
+          </li>
+            <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/admin/expenses">
+              <i class="fas fa-external-link-alt"></i>
+              <span class="menu-title">المصروفات</span>
+            </a>
+          </li>
+           </li>
+            <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/admin/Acalculator">
+              <i class="menu-icon fas fa-calculator"></i>
+              <span class="menu-title">الأله الحاسبه</span>
+            </a>
+          </li>
+        
+          </li>
+            <li class="nav-item" style="padding-top: 0px;">
+            <a class="btn btn-primary btn-block" style="height: 40px;" href="/user/logout">
+              <i class="menu-icon fas fa-sign-out-alt"></i>
+              <span class="menu-title">تسجيل الخروج</span>
+            </a>
+          </li>
+        
+        
+        </ul>
+      </nav>
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>الألة الحاسبة</h1></div>     
+              </span>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body" style="    width: 500px;
+    margin-left: 299px;">
+           
+
+                
+
+ 
+ 
+
+ 
+<body id="body" >
+ <div class="calculator">
+  <div class="input" id="input"></div>
+  <div class="buttons">
+    <div class="operators">
+      <div>+</div>
+      <div>-</div>
+      <div>&times;</div>
+      <div>&divide;</div>
+    </div>
+    <div class="leftPanel">
+      <div class="numbers">
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+      </div>
+      <div class="numbers">
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+      </div>
+      <div class="numbers">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+      <div class="numbers">
+        <div>0</div>
+        <div>.</div>
+        <div id="clear">C</div>
+      </div>
+    </div>
+    <div class="equal" id="result">=</div>
+  </div>
+</div>
+</body>
+
+
+
+
+
+  
+ 
+                </div>
+              
+              </div>
+              
+              <!--weather card ends-->
+            </div>
+           
+          </div>
+       
+          
+        </div>
+     
+     
+{{>footer}}

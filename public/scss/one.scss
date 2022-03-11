@@ -1,0 +1,377 @@
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+
+@mixin border($width:5px, $color:$orange) {
+  border:$width solid $color;
+  border:$width solid transparentize($color, 0.25);
+}
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+        overflow: hidden; 
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+$tableBorder: transparentize(#ccc, 0.5);
+
+$confirmGreen: #2ecc71;
+$alertRed: #e74c3c;
+$orange: #c55901;
+$blue: complement($orange);
+$darkBlue: darken($blue, 15%);
+$default-transition-duration: 250ms;
+$perspective: 300;
+// card flip credit: andymcfee: https://gist.github.com/andymcfee/3379220
+
+body {
+  font-family: 'Bitter', serif;
+  background:#eee url(https://i.imgur.com/xn0AelH.png);
+  
+  @media screen and (min-width:30em) {
+    padding:20px;
+  }
+}
+
+.content {
+  padding:5px;
+  background:#fafafa;
+  background:transparentize(#fafafa, 0.3);
+  @include border();
+  @include clearfix;
+  
+  @media screen and (min-width:30em) {
+    padding:20px;
+  }
+  
+}
+
+h1 {
+  color:$blue;
+  margin-bottom:0;
+}
+
+p {
+  line-height:1.5;
+}
+
+a {
+  color:$blue;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  @include transition(color ease-in 0.25s, 
+                      border ease-in 0.25s,
+                      background-color ease-in 0.25s);
+  
+  &:hover {
+    color:$blue;
+    border-bottom-color:$blue;
+  }
+    
+    &.cta {
+      margin:25px auto;
+      width:90%;
+      position: relative;
+      outline: 0;
+      padding: 8px 0;
+      display: block;
+      cursor: pointer;
+      color: #eee;
+      background-color:$confirmGreen;
+      border:0;
+      font:{
+        size:0.875em;
+        weight:bold; 
+      }
+      text: {
+        align: center;
+        decoration: none;
+        transform: uppercase;
+      }
+      
+      &:hover {
+        background-color:darken($confirmGreen, 10%);
+        color:#fff;
+      }
+      
+      &:active {
+        top:2px;
+        background-color:darken($confirmGreen, 20%);
+      }  
+      
+    }
+}
+
+.removeAlert {
+  width:100%;
+  display:none;
+  padding:7px 5px;
+  color:#eee;
+  background:$confirmGreen;
+  background:transparentize($confirmGreen, 0.3);
+}
+
+table {
+  width:100%;
+  color:#454545;
+  
+  &.items {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    
+    @media screen and (min-width:45em) {
+      width:60%; 
+    }
+    
+    @media screen and (min-width:55em) {
+      width:70%; 
+    }
+    
+    
+    tbody {      
+      tr {
+        margin-bottom:10px;
+        background-color:rgba(150, 160, 150, 0.05);
+      }
+      td {
+        border-top:1px solid $tableBorder;
+        border-bottom:1px solid $tableBorder;
+        
+        // first cell
+        &:first-child {
+          border-left:1px solid $tableBorder;
+        }
+           
+        // last cell
+        &:last-child {
+          border-right:1px solid $tableBorder;
+        }
+      }
+    }
+  }
+  
+  &.pricing {
+    width:100%;
+    
+    tr {
+      border-bottom:1px solid $tableBorder;
+      
+      &:last-child {
+          border-bottom:0;
+          color:$blue;
+        }
+    }
+    
+    td:nth-child(2) { 
+      display:table-cell;
+    }    
+  }
+}
+
+th {
+  text-transform:uppercase;
+  background:$blue;
+  color:#eee;
+  padding:10px 0;
+  text-align:center;
+  font-size:0.875em;
+  
+  // 2nd cell
+  &:nth-child(2) {
+    display:none;
+    
+      @media screen and (min-width:24em) {
+      display:table-cell
+    }
+  }
+}
+
+td {
+  padding:10px;
+  
+  // first cell
+  &:first-child {
+    width:50%;
+  }
+    
+  // 2nd cell
+  &:nth-child(2) {
+    display:none;
+    @media screen and (min-width:24em) {
+      display:table-cell;
+    }
+  }
+  
+  // 2-4 cells
+  &:nth-child(n+2):nth-child(-n+4) {
+    text-align:center;
+  }
+  
+  // last cell
+  &:last-child {
+    font-weight:bold;
+  }
+    
+  a.remove {
+    font-size:0.75em;
+    display:block;
+    width:50px;
+    margin:5px auto 0;
+    color:$alertRed;
+      &:hover {
+        color:darken($alertRed, 20%);
+        border-bottom-color:darken($alertRed, 20%);
+      }
+        
+  }
+    
+  p {
+    float:left;
+    width:90%;
+    margin-top:0;
+      
+      @media screen and (min-width:40em) {
+        width:55%
+      }
+      
+      @media screen and (min-width:68em) {
+        width:45%
+      }
+      
+      @media screen and (min-width:80em) {
+        width:55%
+      }
+      
+      &.description {
+        display:none;
+        
+        @media screen and (min-width:57em) {
+          font-size:0.8em;
+          display:inline;
+        }        
+      }
+  }
+  
+  .itemNum {
+    font:{
+      size:0.75em;
+      style:italic;
+    }
+  }
+    
+  input.quantity {
+    width:50px;
+    margin-top:22px;
+    padding:4px;
+    font-size:0.825em;
+    border:1px solid #aaa;
+  }
+}
+
+.item {
+  display: none;
+  position: relative;
+  z-index: 1000;  
+  width: 75px; height:100px;
+  margin-right:25px;
+  float:left;
+  
+  img {
+    width:100%; height:100%;
+  }
+  
+  .item-back { display:none }
+  
+  @media screen and (min-width:57em) {
+    display:block;
+    
+    .item-front,
+    .item-back {
+      width:75px; height:100px;
+      @include border($width:1px);
+    }
+  }
+  
+  @media screen and (min-width:62em) {
+    width:100px;
+    height:150px;
+    
+    .item-front,
+    .item-back {
+      display: block;
+      height: 100%; width: 100%;
+      position: absolute;        
+      @include backface-visibility(hidden);
+      @include single-transition(transform);
+      @include border($width:2px);
+      @include box-shadow(0 0 5px transparentize(#bbb, 0.5));
+    }
+    .item-front {
+      @include transform3d(perspective($perspective) rotateX(0));
+      z-index: 900;
+      background:#fff;
+    }
+    
+    .item-back {
+      @include rotateX(-180deg);
+      z-index: 800;
+      background:#fafafa;
+    }
+    
+    &:hover {
+      .item-front {
+        @include transform3d(perspective($perspective) rotateX(180deg));
+      }
+      .item-back {
+        @include transform3d(perspective($perspective) rotateX(0deg));
+      }
+    }
+    
+  } 
+  
+  @media screen and (min-width:68em) {
+    width:150px;
+    height:200px;
+  }  
+}
+
+.cost {
+  padding-bottom:10px;
+  border:1px solid transparentize(#ccc, 0.5);
+  @include background-image(linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(150, 160, 150, 0.13) 100%));
+  
+  @media screen and (min-width:45em) {
+    width:30%;
+    position:fixed;
+    right:25px; top:257px; 
+    border-width:1px 0 1px 1px;
+  }
+  
+  @media screen and (min-width:55em) {
+    width:20%; 
+  }
+  
+  @media screen and (min-width:61.5em) {
+    top:234px;
+  }
+  
+  h2 {
+    background:$blue;
+    color:#eee;
+    margin:0; padding:10px 0;
+    width:100%;
+    font-size:1em;
+    text:{
+      align:center;
+      transform:uppercase;
+    }
+    
+  }
+  
+}

@@ -1,0 +1,358 @@
+{{>header}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>عيد ميلاد</h1></div>     
+              </span>
+            </div>
+          </div>
+   <nav class="nav-tab" >
+    <ul style="font-weight: bold;">
+  
+    </ul>
+  </nav>
+     <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <!--weather card-->
+              <div class="card card-weather">
+                <div class="card-body"> 
+                <div class="container">
+
+     <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;">
+                <div class="reciept">
+
+                </div>
+                                                         <input id="m" class="orderTotal number myInput " form="myFormId" style="direction: rtl; float: right;" readonly>
+
+                         
+
+
+                
+                          
+                    <input type="text" class="myInput" id="myInput1"  onkeyup="myFunction()" style="direction: rtl; float: right;" placeholder="بحث........." title="Type in a name">
+   
+<button class="btn btn-primary btnde"  style="border-radius: 6px;" type="" onclick="reset()"> مسح </button></div>     
+              </span>
+            </div>
+          </div>
+
+       <form  action="/v1/birthday" method="POST"  id="myFormId">
+
+
+
+       <section  style="padding: 0px;" >
+                     <table id="myTable"class=" table table-scroll table-bordered table-hover table-primary items" style="float:right;">
+                        <thead>
+                           <th>اجمالي سعر الصنف</th>
+                          <th >السعر </th>
+                          <th>العدد</th>
+                            <th>اسم الصنف</th>
+                           
+                         </thead>
+                         <tbody>
+                  <tr>
+                    <td class="itemTotal">00.00</td>
+                              <td >10</td>
+                       <td><input type="number" class="item quantity number" value="0" name='فرد_عيد_ميلاد' min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item"> فرد عيد ميلاد</td>
+                             
+                         
+                  </tr>
+                     <tr>
+                    <td class="itemTotal">00.00</td>
+                              <td >15</td>
+                       <td><input type="number" class="item quantity number" value="0" name='فرد+كانز' min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item"> فرد + كانز</td>
+                             
+                         
+                  </tr>
+                        
+                           <tr>
+                    <td class="itemTotal">00.00</td>
+                              <td >20</td>
+                       <td><input type="number" class="item quantity number" value="0" name='فرد+كانز+سيرفيس' min="0"></td>
+                               
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item"> فرد + كانز + سيرفيس</td>
+                             
+                         
+                  </tr>
+                        
+                           <tr>
+                    <td class="itemTotal">00.00</td>
+                             
+                       <td><input type="number" style="width: fit-content;" class="item quantity number"  name='تجهيزات_عيد_ميلاد' min="0"></td>
+                               <td></td>
+                               <td style="border-radius: 20px;background-color: primary; font-size: large; font-weight: bold;" class="item"> تجهيزات عيد ميلاد</td>
+                             
+                         
+                  </tr>
+                        
+                        
+                    
+                          </tbody>
+                     </table>
+       </section>
+       
+    
+ 
+   
+  
+  
+
+   </div>
+   </div>
+                </div>
+              
+              </div>
+              
+            </div>
+           
+          </div>
+
+    <div style="align-items: center;">
+   <button class="btn btn-primary"   style="width: 100%;height: 80px; background-color:darkcyan" id="mo" type="submit">عمل فاتورة</button>
+   </div> 
+   </form>
+  
+ <div class="cost">
+    <table class="pricing">
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="subtotal"></td>
+        </tr>
+        <tr>
+          <td>Tax (10%)</td>
+          <td class="tax"></td>
+        </tr>         
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+      
+    
+</div>
+          
+        </div>
+        </div>
+  
+    <script>
+        $('#mo').click(function(e){
+          
+               var payed=$('#m').val()
+        var cash=$('#myInput').val()
+        if(formatNum(payed) > formatNum(cash)){
+              e.preventDefault()
+            alert("المبلغ المدفوع اقل من المبلغ المطلوب")
+        }
+       
+
+        })
+         
+       
+      function reset(){
+           
+          document.getElementsByClassName("itemTotal").value = 0.00;
+            document.getElementsByClassName("subtotal").value = 0.00;
+          
+          $("table.pricing td.subtotal").text(0.00),
+       $("table.pricing td.tax").text(),
+     
+  
+  subtotal = 0.00
+  tax = 0.00
+   
+  total = 0.00
+  
+  $("input.orderTotal").val(total);
+  $('.quantity').each(function(){
+      console.log("mosalah")
+      $(this).val(0.00)
+  })
+   $("table.items td.itemTotal").each(function(){
+    $(this).text(0.00)
+    // set the pricePer to a nice, digestable number
+    value = 0.00
+
+    sum += 0.00
+    $("table.pricing td.subtotal").text("$" + 0.00);
+  });
+      }
+    $("form").submit(function(e){  
+        
+      
+        $("input").each(function(index, obj){
+            if($(obj).val() == "" || $(obj).val() == 0) {
+                $(obj).remove();
+            }
+        
+        });
+
+    });
+
+ 
+
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("span")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+       $(document).ready(function(){
+
+
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+  
+  
+  
+
+   
+    </script>
+    <script>
+    var removedItem,
+    sum = 0;
+
+$(function(){
+  // calculate the values at the start
+  calculatePrices();
+  
+  // Click to remove an item
+  $(document).on("click", "a.remove", function() {
+      removeItem.apply(this);
+  });
+  
+  // Undo removal link click
+  $(document).on("click", ".removeAlert a", function(){    
+    // insert it into the table
+    addItemBackIn();
+    //remove the removal alert message
+    hideRemoveAlert();
+  });
+  
+  $(document).on("change", "input.quantity", function(){
+    var val = $(this).val(),
+        pricePer,
+        total
+    console.log(val)
+    if ( val < "0") {
+      removeItem.apply(this);
+    } else {
+      // reset the prices
+      sum = 0;
+      
+      // get the price for the item
+      pricePer = $(this).parents("td").prev("td").text();
+      // set the pricePer to a nice, digestable number
+      pricePer = formatNum(pricePer);
+      // calculate the new total
+      total = parseFloat(val * pricePer).toFixed(2);
+            console.log(total)
+
+      // set the total cell to the new price
+      $(this).parents("td").siblings(".itemTotal").text("$" + total);
+      
+      // recalculate prices for all items
+      calculatePrices();
+    }
+  });
+  
+});
+
+
+function removeItem() {
+ // store the html
+  removedItem = $(this).closest("tr").clone();
+  // fade out the item row
+  $(this).closest("tr").fadeOut(500, function() {
+    $(this).remove();
+    sum = 0;
+    calculatePrices();
+  });
+  // fade in the removed confirmation alert
+  $(".removeAlert").fadeIn();
+  
+  // default to hide the removal alert after 5 sec
+  setTimeout(function(){
+    hideRemoveAlert();
+  }, 5000); 
+}
+
+function hideRemoveAlert() {
+  $(".removeAlert").fadeOut(500);
+}
+
+function addItemBackIn() {
+  sum = 0;
+  $(removedItem).prependTo("table.items tbody").hide().fadeIn(500) 
+  calculatePrices();
+}
+
+function updateSubTotal(){
+  $("table.items td.itemTotal").each(function(){
+    var value = $(this).text();
+    // set the pricePer to a nice, digestable number
+    value = formatNum(value);
+
+    sum += parseFloat(value);
+    $("table.pricing td.subtotal").text("$" + sum.toFixed(2));
+  });
+}
+
+function addTax() {
+  var tax =Math.round(parseFloat((sum * 10)/100).toFixed(2));
+  console.log(name)
+  $("table.pricing td.tax").text("$" + tax);
+}
+
+function calculateTotal() {
+    
+  var subtotal = $("table.pricing td.subtotal").text(),
+      tax = $("table.pricing td.tax").text(),
+      total;
+      console.log("subtotal:"+subtotal)
+  
+  subtotal = formatNum(subtotal);
+  tax = formatNum(tax);
+   
+  total = (subtotal ).toFixed(2);
+  
+  $("input.orderTotal").val(total);
+}
+
+function calculatePrices() {
+  updateSubTotal();
+  addTax();
+  calculateTotal();
+}
+
+function formatNum(num) {
+  return parseFloat(num.replace(/[^0-9-.]/g, ''));
+}
+</script>
+     
+{{>footer}}

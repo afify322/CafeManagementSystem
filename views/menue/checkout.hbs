@@ -1,0 +1,256 @@
+{{>header}}
+      <div class="main-panel">
+        <div class="content-wrapper">
+        <div class="row purchace-popup">
+            <div class="col-12">
+              <span class="d-block d-md-flex " >
+            <div style="text-align: center; width: 100%;"><h1>  {{total.total}} اجمالي الخزينة</h1></div>     
+              </span>
+            </div>
+          </div>
+   <nav class="nav-tab" >
+    <ul style="font-weight: bold;">
+  
+    </ul>
+  </nav>
+    
+
+ 
+
+       <form  action="/user/checkout" method="get"  id="myFormId">
+
+
+
+       
+  
+  
+
+  
+           
+         
+    <div style="align-items: center;">
+   <button class="btn btn-primary"   style="width: 100%;height: 80px; background-color:darkcyan" id="mo" type="submit">تأكيد تقفيل الوردية</button>
+   </div> 
+   </form>
+  
+ 
+</div>
+      
+    
+</div>
+          
+        </div>
+        </div>
+  
+    <script>
+        $('#mo').click(function(e){
+          
+               var payed=$('#m').val()
+        var cash=$('#myInput').val()
+        if(formatNum(payed) > formatNum(cash)){
+              e.preventDefault()
+            alert("المبلغ المدفوع اقل من المبلغ المطلوب")
+        }
+       
+
+        })
+         
+       
+      function reset(){
+           
+          document.getElementsByClassName("itemTotal").value = 0.00;
+            document.getElementsByClassName("subtotal").value = 0.00;
+          
+          $("table.pricing td.subtotal").text(0.00),
+       $("table.pricing td.tax").text(),
+     
+  
+  subtotal = 0.00
+  tax = 0.00
+   
+  total = 0.00
+  
+  $("input.orderTotal").val(total);
+  $('.quantity').each(function(){
+      console.log("mosalah")
+      $(this).val(0.00)
+  })
+   $("table.items td.itemTotal").each(function(){
+    $(this).text(0.00)
+    // set the pricePer to a nice, digestable number
+    value = 0.00
+
+    sum += 0.00
+    $("table.pricing td.subtotal").text("$" + 0.00);
+  });
+      }
+    $("form").submit(function(e){  
+        
+      
+        $("input").each(function(index, obj){
+            if($(obj).val() == "" || $(obj).val() == 0) {
+                $(obj).remove();
+            }
+        
+        });
+
+    });
+
+ 
+
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("span")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+       $(document).ready(function(){
+
+
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+  
+  
+  
+
+   
+    </script>
+    <script>
+    var removedItem,
+    sum = 0;
+
+$(function(){
+  // calculate the values at the start
+  calculatePrices();
+  
+  // Click to remove an item
+  $(document).on("click", "a.remove", function() {
+      removeItem.apply(this);
+  });
+  
+  // Undo removal link click
+  $(document).on("click", ".removeAlert a", function(){    
+    // insert it into the table
+    addItemBackIn();
+    //remove the removal alert message
+    hideRemoveAlert();
+  });
+  
+  $(document).on("change", "input.quantity", function(){
+    var val = $(this).val(),
+        pricePer,
+        total
+    console.log(val)
+    if ( val < "0") {
+      removeItem.apply(this);
+    } else {
+      // reset the prices
+      sum = 0;
+      
+      // get the price for the item
+      pricePer = $(this).parents("td").prev("td").text();
+      // set the pricePer to a nice, digestable number
+      pricePer = formatNum(pricePer);
+      // calculate the new total
+      total = parseFloat(val * pricePer).toFixed(2);
+            console.log(total)
+
+      // set the total cell to the new price
+      $(this).parents("td").siblings(".itemTotal").text("$" + total);
+      
+      // recalculate prices for all items
+      calculatePrices();
+    }
+  });
+  
+});
+
+
+function removeItem() {
+ // store the html
+  removedItem = $(this).closest("tr").clone();
+  // fade out the item row
+  $(this).closest("tr").fadeOut(500, function() {
+    $(this).remove();
+    sum = 0;
+    calculatePrices();
+  });
+  // fade in the removed confirmation alert
+  $(".removeAlert").fadeIn();
+  
+  // default to hide the removal alert after 5 sec
+  setTimeout(function(){
+    hideRemoveAlert();
+  }, 5000); 
+}
+
+function hideRemoveAlert() {
+  $(".removeAlert").fadeOut(500);
+}
+
+function addItemBackIn() {
+  sum = 0;
+  $(removedItem).prependTo("table.items tbody").hide().fadeIn(500) 
+  calculatePrices();
+}
+
+function updateSubTotal(){
+  $("table.items td.itemTotal").each(function(){
+    var value = $(this).text();
+    // set the pricePer to a nice, digestable number
+    value = formatNum(value);
+
+    sum += parseFloat(value);
+    $("table.pricing td.subtotal").text("$" + sum.toFixed(2));
+  });
+}
+
+function addTax() {
+  var tax =Math.round(parseFloat((sum * 10)/100).toFixed(2));
+  console.log(name)
+  $("table.pricing td.tax").text("$" + tax);
+}
+
+function calculateTotal() {
+    
+  var subtotal = $("table.pricing td.subtotal").text(),
+      tax = $("table.pricing td.tax").text(),
+      total;
+      console.log("subtotal:"+subtotal)
+  
+  subtotal = formatNum(subtotal);
+  tax = formatNum(tax);
+   
+  total = (subtotal ).toFixed(2);
+  
+  $("input.orderTotal").val(total);
+}
+
+function calculatePrices() {
+  updateSubTotal();
+  addTax();
+  calculateTotal();
+}
+
+function formatNum(num) {
+  return parseFloat(num.replace(/[^0-9-.]/g, ''));
+}
+</script>
+     
+{{>footer}}
