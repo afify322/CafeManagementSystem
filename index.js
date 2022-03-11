@@ -26,17 +26,25 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 app.use(morgan('combined'))
 app.set('trust proxy', 1);
+app.set('trust proxy', 1);
+
 app.use(session({
-  secret: "hello",
-  resave: true,
-  saveUninitialized: true,
-  cookie:{
-    secure:true,
-    httpOnly:false,
-    maxAge:1000*60*60*60
-  }
-  
-}))
+cookie:{
+    secure: true,
+    maxAge:60000
+       },
+
+secret: 'secret',
+saveUninitialized: true,
+resave: false
+}));
+
+app.use(function(req,res,next){
+if(!req.session){
+    return next(new Error('Server Error')) //handle error
+}
+next() //otherwise continue
+});
 app.use(flash());
 
 app.use(function (req, res, next) {
@@ -58,8 +66,8 @@ app.use((req,res,next)=>{
 })
 
 
-let port=3000 | process.env.PORT;
+let port=3000 || process.env.PORT;
 
 app.listen(port , ()=>{
-// open('http://localhost:4000/user/login', {app: {name: 'firefox'}});
+
 } )
