@@ -26,7 +26,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 app.use(morgan('combined'))
 app.use(session({
-  secret: process.env.SECRET,
+  secret: process.env.SERCRET,
   resave: true,
   saveUninitialized: true,
   cookie:{
@@ -57,7 +57,8 @@ app.use((req,res,next)=>{
 })
 
 
+let port=3000 | process.env.PORT;
 
-app.listen(4000 , ()=>{
+app.listen(port , ()=>{
 // open('http://localhost:4000/user/login', {app: {name: 'firefox'}});
 } )
